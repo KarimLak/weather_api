@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers.forecast import forecast_router
+from app.routers.forecast import forecast_router
 
 app = FastAPI()
 

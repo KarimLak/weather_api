@@ -2,18 +2,20 @@ from typing import Dict, List, Optional, Union
 from pydantic import BaseModel, Field
 
 class ForecastCreate(BaseModel):
-    latitude: float = Field(..., ge=-90, le=90)
-    longitude: float = Field(..., ge=-180, le=180)
+    latitude: float = Field(45.5017, ge=-90, le=90)
+    longitude: float = Field(-73.5673, ge=-180, le=180)
 
 class ForecastCreateDaily(ForecastCreate):
-    hourly: str = "temperature_2m"
+    hourly: List[str] = ["temperature_2m"]
     past_days: int = 0
     forecast_days: int = 1
+    timezone: str = "auto"
 
 class ForecastCreateWeekly(ForecastCreate):
-    hourly: str = "temperature_2m"
+    hourly: List[str] = ["temperature_2m"]
     past_days: int = 0
     forecast_days: int = 7
+    timezone: str = "auto"
 
 class ForecasteResponse(BaseModel):
 # --- Location & metadata ---
