@@ -6,13 +6,13 @@ class ForecastCreate(BaseModel):
     longitude: float = Field(-73.5673, ge=-180, le=180)
 
 class ForecastCreateDaily(ForecastCreate):
-    hourly: List[str] = ["temperature_2m"]
+    daily: List[str] = ["temperature_2m_min", "temperature_2m_max"]
     past_days: int = 0
     forecast_days: int = 1
     timezone: str = "auto"
 
 class ForecastCreateWeekly(ForecastCreate):
-    hourly: List[str] = ["temperature_2m"]
+    daily: List[str] = ["temperature_2m"]
     past_days: int = 0
     forecast_days: int = 7
     timezone: str = "auto"
