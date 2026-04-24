@@ -1,0 +1,6 @@
+fastapi
+openmeteo_requests
+pydantic
+typing
+redis
+uvicorn
